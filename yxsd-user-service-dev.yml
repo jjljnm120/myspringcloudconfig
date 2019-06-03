@@ -16,6 +16,11 @@ spring:
     port: 5672
     username: wsq
     password: 123456
+  cloud:
+    bus:
+      enabled: true
+      trace:
+        enabled: true
     
 #  jpa:
 #    hibernate:
