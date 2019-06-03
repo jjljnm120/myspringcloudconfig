@@ -10,6 +10,13 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/qualifications
     username: root 
     password: root123
+ #application.yml中添加actuator监控相关的配置 
+  rabbitmq:   
+    host: localhost
+    port: 5672
+    username: wsq
+    password: 123456
+    
 #  jpa:
 #    hibernate:
 #      #ddl-auto: create #ddl-auto:设为create表示每次都重新建表
@@ -43,6 +50,15 @@ eureka:
       defaultZone:  http://localhost:8761/eureka,http://localhost:8762/eureka
   instance:
     preferIpAddress: true   #可返回IP和主机名  方法findFirstNonLoopbackAddress()获取收个非回环地址
-    
+    #配置actuator # 1.X版本的springboot 配置： management.security.enabled=false 已经作废 
+management: 
+  endpoints: 
+    web: 
+      exposure: 
+        include: bus-refresh,health,info # 2.X 版本的配置方式。默认只有health,info，这里需要将refresh添加上【手动刷新使用的是refresh，使用消息总线则是bus-refresh】 
+  endpoint: 
+    health: 
+      show-details: always
+
 
 auth: wangshuqiang123
