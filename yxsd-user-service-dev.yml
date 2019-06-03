@@ -45,4 +45,4 @@ eureka:
     preferIpAddress: true   #可返回IP和主机名  方法findFirstNonLoopbackAddress()获取收个非回环地址
     
 
-auth: wangshuqiang
+auth: wangshuqiang123
