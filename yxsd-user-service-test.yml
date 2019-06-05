@@ -1,0 +1,69 @@
+server:
+  port: 7102
+  
+spring:
+  application:
+    name: yxsd-user-service
+# mysql 属性配置
+  datasource: 
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/qualifications?setUnicode=true&characterEncoding=utf8
+    username: root 
+    password: root123
+ #application.yml中添加actuator监控相关的配置 
+  rabbitmq:   
+    host: localhost
+    port: 5672
+    username: wsq
+    password: 123456
+  cloud:
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+    
+#  jpa:
+#    hibernate:
+#      #ddl-auto: create #ddl-auto:设为create表示每次都重新建表
+#      ddl-auto: update #ddl-auto:设为update表示每次都不会重新建表
+#    show-sql: true
+#####################################################################################################
+
+# mybatis-plus 配置
+    # 配置mybatis-plus
+    # 配置mybatis-plus
+mybatis-plus:
+  # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
+  # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
+  config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.yxsd.entity
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+   
+    # 热加载mapper文件
+    refresh: true
+    db-config:
+      db-type: mysql
+      id-type: uuid
+#####################################################################################################        
+    
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://admin:123456@localhost:8761/eureka/,http://admin:123456@localhost:8762/eureka/,http://admin:123456@localhost:8763/eureka/
+  instance:
+    preferIpAddress: true   #可返回IP和主机名  方法findFirstNonLoopbackAddress()获取收个非回环地址
+    #配置actuator # 1.X版本的springboot 配置： management.security.enabled=false 已经作废 
+management: 
+  endpoints: 
+    web: 
+      exposure: 
+        include: bus-refresh,health,info # 2.X 版本的配置方式。默认只有health,info，这里需要将refresh添加上【手动刷新使用的是refresh，使用消息总线则是bus-refresh】 
+  endpoint: 
+    health: 
+      show-details: always
+
+
+auth: wangshuqiang12315test
