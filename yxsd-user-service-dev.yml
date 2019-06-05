@@ -7,7 +7,7 @@ spring:
 # mysql 属性配置
   datasource: 
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/qualifications
+    url: jdbc:mysql://127.0.0.1:3306/qualifications?setUnicode=true&characterEncoding=utf8
     username: root 
     password: root123
  #application.yml中添加actuator监控相关的配置 
