@@ -49,13 +49,13 @@ mybatis-plus:
       id-type: uuid
 #####################################################################################################        
     
-# eureka:
-#   client:
-#     service-url:
-#       defaultZone:  http://admin:123456@localhost:8761/eureka/,http://admin:123456@localhost:8762/eureka/,http://admin:123456@localhost:8763/eureka/
-#   instance:
-#     preferIpAddress: true   #可返回IP和主机名  方法findFirstNonLoopbackAddress()获取收个非回环地址
-#     #配置actuator # 1.X版本的springboot 配置： management.security.enabled=false 已经作废 
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://admin:123456@localhost:8761/eureka/,http://admin:123456@localhost:8762/eureka/,http://admin:123456@localhost:8763/eureka/
+  instance:
+    preferIpAddress: true   #可返回IP和主机名  方法findFirstNonLoopbackAddress()获取收个非回环地址
+    #配置actuator # 1.X版本的springboot 配置： management.security.enabled=false 已经作废 
 management: 
   endpoints: 
     web: 
