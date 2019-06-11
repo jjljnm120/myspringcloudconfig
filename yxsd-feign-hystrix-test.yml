@@ -30,3 +30,6 @@ spring:
     expireTime: 36000
    
 auth: 熊二
+redis:
+  expireTime: 36000
+
