@@ -30,4 +30,4 @@ spring:
     
 auth: 熊大
 redis:
-  expireTime: 36000
+  expireTime: 600000
